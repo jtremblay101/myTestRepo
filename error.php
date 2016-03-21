@@ -1,5 +1,5 @@
 <?php
 
-echo "Hello"
+echo "Hello";
 
-echo "Error"
+echo xdebug_is_enabled();
