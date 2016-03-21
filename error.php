@@ -2,4 +2,4 @@
 
 echo "Hello";
 
-echo xdebug_is_enabled();
+var_dump( xdebug_is_enabled() );
