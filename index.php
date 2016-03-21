@@ -1,1 +1,3 @@
-Hello test
+<?php
+
+echo "Hello php";
