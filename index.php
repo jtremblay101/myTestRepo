@@ -27,5 +27,7 @@ catch(ServiceException $e){
 $entities = $result->getEntities();
 
 foreach($entities as $entity){
-    echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
+    echo $entity->getPartitionKey().":".$entity->getRowKey()."<br/>;
+	var_dump($entity);
+	echo "<br />";
 }
