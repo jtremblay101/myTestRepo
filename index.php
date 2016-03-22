@@ -26,8 +26,38 @@ catch(ServiceException $e){
 
 $entities = $result->getEntities();
 
+$i=0;
+$columns = [];
+$body = "";
 foreach($entities as $entity){
-    echo $entity->getPartitionKey().":".$entity->getRowKey()."<br/>";
-	var_dump($entity);
-	echo "<br />";
+	$body .= "<tr>";
+	foreach($entity as $column=>$value)
+	{
+		if($i==0)
+		{
+			$columns[] = $column;
+		}
+		
+		$body.="<td>$value</td>";
+	}
+	$body .= "</tr>";
+	$i++;
 }
+
+$head = implode("</th><th>",$columns);
+
+echo "
+	<table>
+		<thead>
+			<th>
+				$head
+			</th>
+		</thead>
+		<tbody>
+			$body
+		</tbody>
+	</table>
+";
+
+
+"
