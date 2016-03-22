@@ -33,11 +33,15 @@ $body = "";
 foreach($entities as $entity){
 	$body .= "<tr>";
 	
+	echo "Entity:<br/>";
 	var_dump($entity);
 	
 	foreach($entity as $column => $value)
 	{
+		echo "Column:<br/>";
 		var_dump($column);
+		
+		echo "Value:";
 		var_dump($value);
 		if($i==0)
 		{
