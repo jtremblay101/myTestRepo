@@ -2,38 +2,30 @@
 
 require_once 'azure\WindowsAzure\WindowsAzure.php';
 use WindowsAzure\Common\ServicesBuilder;
-use WindowsAzure\Blob\Models\CreateContainerOptions;
-use WindowsAzure\Blob\Models\PublicAccessType;
 use WindowsAzure\Common\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=vanman;AccountKey=QdWBBF/0E+rYpBrk5YC0kyV7CxRgnP9CP0AhQG4Q9R8cDIFIbIyHHwoK3I+GgAlfOb4V7ifiDZ6BRBDsGvefIQ==";
 
 
-// Create blob REST proxy.
-$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
+$filter = "";
 
 try {
-	$createContainerOptions = new CreateContainerOptions();
-	
-	$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-	
-	$blobRestProxy->createContainer("mycontainer", $createContainerOptions);
-	
-    // List blobs.
-    $blob_list = $blobRestProxy->listBlobs("mycontainer");
-    $blobs = $blob_list->getBlobs();
-
-    foreach($blobs as $blob)
-    {
-        echo $blob->getName().": ".$blob->getUrl()."<br />";
-    }
+    $result = $tableRestProxy->queryEntities("Vanities", $filter);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179439.aspx
+    // http://msdn.microsoft.com/library/azure/dd179438.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
+}
+
+$entities = $result->getEntities();
+
+foreach($entities as $entity){
+    echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 }
