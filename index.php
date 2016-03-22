@@ -5,12 +5,14 @@ use WindowsAzure\Common\ServicesBuilder;
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=vanman;AccountKey=QdWBBF/0E+rYpBrk5YC0kyV7CxRgnP9CP0AhQG4Q9R8cDIFIbIyHHwoK3I+GgAlfOb4V7ifiDZ6BRBDsGvefIQ==";
 
-$blobRestProxy->createContainer("mycontainer", $createContainerOptions);
+
 // Create blob REST proxy.
 $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
 
 try {
+	$blobRestProxy->createContainer("mycontainer", $createContainerOptions);
+	
     // List blobs.
     $blob_list = $blobRestProxy->listBlobs("mycontainer");
     $blobs = $blob_list->getBlobs();
