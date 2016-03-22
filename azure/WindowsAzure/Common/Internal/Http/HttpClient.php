@@ -30,6 +30,8 @@ use WindowsAzure\Common\ServiceException;
 use WindowsAzure\Common\Internal\Validate;
 use WindowsAzure\Common\Internal\Http\IUrl;
 
+require_once 'HTTP/Request2.php';
+
 /**
  * HTTP client which sends and receives HTTP requests and responses.
  *
