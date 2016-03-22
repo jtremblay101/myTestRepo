@@ -29,10 +29,16 @@ $entities = $result->getEntities();
 $i=0;
 $columns = [];
 $body = "";
+
 foreach($entities as $entity){
 	$body .= "<tr>";
-	foreach($entity as $column=>$value)
+	
+	var_dump($entity);
+	
+	foreach($entity as $column => $value)
 	{
+		var_dump($column);
+		var_dump($value);
 		if($i==0)
 		{
 			$columns[] = $column;
