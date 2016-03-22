@@ -11,6 +11,10 @@ $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionSt
 
 
 try {
+	$createContainerOptions = new CreateContainerOptions();
+	
+	$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+	
 	$blobRestProxy->createContainer("mycontainer", $createContainerOptions);
 	
     // List blobs.
