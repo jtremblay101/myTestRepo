@@ -28,7 +28,7 @@ echo "Methods:<br/>";
 var_dump(get_class_methods($result));
 
 echo "Next Partition:<br/>";
-var_dump($result-getNextPartitionKey());
+var_dump($result->getNextPartitionKey());
 
 $entities = $result->getEntities();
 
