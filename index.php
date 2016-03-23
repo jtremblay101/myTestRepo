@@ -13,7 +13,7 @@ $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connection
 $filter = "";
 
 try {
-    $result = $tableRestProxy->queryEntities("https://vanman.table.core.windows.net/Tables('Vanities')", $filter);
+    $result = $tableRestProxy->queryEntities("Vanities", $filter);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
