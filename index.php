@@ -130,7 +130,7 @@ $table = "
 						action: function ( e, dt, node, config ) {
 							var rows = dt.rows( { selected: true } ).count();
 			 
-							alert( 'There are '+rows+'(s) selected in the table' );
+							console.log(dt.rows( { selected: true } ));
 						}
 					}
 				]
