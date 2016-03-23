@@ -37,8 +37,8 @@ foreach($entities as $entity){
 	var_dump($entity);
 	
 	echo "Methods:<br/>";
-	echo get_class_methods($entity);
-	$body.="<td>$value</td>";
+	var_dump(get_class_methods($entity));
+	$body.="<td></td>";
 		
 	$body .= "</tr>";
 	$i++;
