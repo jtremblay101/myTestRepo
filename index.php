@@ -56,8 +56,8 @@ foreach($entities as $entity){
 	}
 	
 	
-	// echo "Methods:<br/>";
-	// var_dump(get_class_methods($entity));
+	echo "Methods:<br/>";
+	var_dump(get_class_methods($entity));
 	
 		
 	$body .= "</tr>";
