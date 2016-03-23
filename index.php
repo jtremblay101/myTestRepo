@@ -42,13 +42,19 @@ foreach($entities as $entity){
 	foreach($properties as $property => $propObject)
 	{
 		echo "Value:<br/>";
-		var_dump($propObject->getValue());
+		
+		var_dump($property);
+		$value = ($propObject->getValue());
+		if ($value instanceof DateTime) {
+			$value = $value->format("d-m-Y @ h:i:s a");
+		}
+		$body.="<td>$value</td>";
 	}
 	
 	
 	echo "Methods:<br/>";
 	var_dump(get_class_methods($entity));
-	$body.="<td></td>";
+	
 		
 	$body .= "</tr>";
 	$i++;
