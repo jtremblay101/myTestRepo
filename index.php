@@ -131,7 +131,7 @@ $table = "
 							var rows = dt.rows( { selected: true } );
 							var numRows = rows.count();
 				
-							console.log(rows.data());
+							console.log(rows.data()[0]);
 						}
 					}
 				]
