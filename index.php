@@ -72,8 +72,8 @@ foreach($entities as $entity){
 
 $head = implode("</th><th>",$columns);
 
-echo "
-	<table id='vanmanTable'>
+$table = "
+	<table id='vanmanTable' class="table table-striped table-bordered">
 		<thead>
 			<th>
 				$head
@@ -96,6 +96,18 @@ echo "
 		});
 	</script>
 </head>
+<body>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Rollins Vanity Urls</h3>
+		</div>
+		  
+		<div class="panel-body">
+			<?php echo $table; ?>
+		</div>
+	</div>
+</body>
+
 
 
 
