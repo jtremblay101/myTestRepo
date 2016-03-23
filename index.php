@@ -73,7 +73,7 @@ foreach($entities as $entity){
 $head = implode("</th><th>",$columns);
 
 echo "
-	<table>
+	<table id='vanmanTable'>
 		<thead>
 			<th>
 				$head
@@ -85,11 +85,17 @@ echo "
 	</table>
 ";
 ?>
-<style>
-table, th, td {
-   border: 1px solid black;
-}
-</style>
+<head>
+	<script type="text/javascript" src="assets\DataTables\jQuery-2.2.0\jquery-2.2.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets\DataTables/datatables.css"/>
+ 
+	<script type="text/javascript" src="assets\DataTables/datatables.js"></script>
+	<script>
+		$(function(){
+			$("#vanmanTable").DataTable();
+		});
+	</script>
+</head>
 
 
 
