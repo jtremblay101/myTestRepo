@@ -24,7 +24,11 @@ catch(ServiceException $e){
     echo $code.": ".$error_message."<br />";
 }
 
+var_dump($result);
+
 $entities = $result->getEntities();
+
+var_dump($entities);
 
 $i=0;
 $columns = [];
