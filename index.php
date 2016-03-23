@@ -93,6 +93,7 @@ $table = "
 	<script>
 		$(function(){
 			$("#vanmanTable").DataTable({
+				dom: 'Bfrtip',
 				buttons: [
 					'colvis',
 					'excel',
