@@ -37,27 +37,29 @@ foreach($entities as $entity){
 	// var_dump($entity);
 	
 	// echo "Properties:<br/>";
-	$properties = ($entity->getProperties());
-	
-	foreach($properties as $property => $propObject)
+	if($i ==0)
 	{
-		// echo "Value:<br/>";
+		$properties = ($entity->getProperties());
 		
-		if($i ==0)
+		foreach($properties as $property => $propObject)
 		{
-			$columns[] = ($property);
-		
+			$columns[] = ($property);			
 		}
-		$value = ($propObject->getValue());
+	}
+	
+	foreach($columns as $column)
+	{
+		$value = $entity->getPropertyValue($column);
+		
 		if ($value instanceof DateTime) {
 			$value = $value->format("d-m-Y @ h:i:s a");
 		}
+		
 		$body.="<td>$value</td>";
-	}
+	}		
 	
-	
-	echo "Methods:<br/>";
-	var_dump(get_class_methods($entity));
+	// echo "Methods:<br/>";
+	// var_dump(get_class_methods($entity));
 	
 		
 	$body .= "</tr>";
