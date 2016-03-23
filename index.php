@@ -126,6 +126,7 @@ $table = "
 					,'print'
 					,{
 						extend: 'selected',
+						text: "Edit",
 						action: function ( e, dt, node, config ) {
 							var rows = dt.rows( { selected: true } ).count();
 			 
