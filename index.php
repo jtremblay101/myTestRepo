@@ -73,7 +73,7 @@ foreach($entities as $entity){
 $head = implode("</th><th>",$columns);
 
 $table = "
-	<table id='vanmanTable' class="table table-striped table-bordered">
+	<table id='vanmanTable' class='table table-striped table-bordered'>
 		<thead>
 			<th>
 				$head
@@ -92,7 +92,13 @@ $table = "
 	<script type="text/javascript" src="assets\DataTables/datatables.js"></script>
 	<script>
 		$(function(){
-			$("#vanmanTable").DataTable();
+			$("#vanmanTable").DataTable({
+				buttons: [
+					'Add',
+					'edit',
+					'delete'
+				]
+			});
 		});
 	</script>
 </head>
