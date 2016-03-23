@@ -128,14 +128,10 @@ $table = "
 						extend: 'selected',
 						text: "Edit",
 						action: function ( e, dt, node, config ) {
-							var cells = dt.cells( { selected: true } );
-							var numRows = cells.count();
+							var rows = dt.rows( { selected: true } );
+							var numRows = rows.count();
 				
-							cells.every(function(){
-								var data = this.data();
-								
-								console.log(data);
-							})
+							console.log(rows.data());
 						}
 					}
 				]
