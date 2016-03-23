@@ -94,9 +94,9 @@ $table = "
 		$(function(){
 			$("#vanmanTable").DataTable({
 				buttons: [
-					'Add',
-					'edit',
-					'delete'
+					'colvis',
+					'excel',
+					'print'
 				]
 			});
 		});
