@@ -119,12 +119,13 @@ $table = "
 	<script>
 		$(function(){
 			$("#vanmanTable").DataTable({
-				dom: 'Blfrtip',
-				buttons: [
+				dom: 'Blfrtip'
+				,buttons: [
 					'colvis',
 					'excel',
 					'print'
 				]
+				,select: true
 			});
 		});
 	</script>
