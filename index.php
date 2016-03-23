@@ -128,9 +128,14 @@ $table = "
 						extend: 'selected',
 						text: "Edit",
 						action: function ( e, dt, node, config ) {
-							var rows = dt.rows( { selected: true } ).count();
-			 
-							console.log(dt.rows( { selected: true } ));
+							var cells = dt.cells( { selected: true } );
+							var numRows = cells.count();
+				
+							cells.every(function(){
+								var data = this.data();
+								
+								console.log(data);
+							})
 						}
 					}
 				]
