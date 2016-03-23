@@ -13,7 +13,7 @@ $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connection
 $filter = "";
 
 try {
-    $result = $tableRestProxy->queryEntities("Vanities", $filter);
+    $result = $tableRestProxy->queryEntities("https://vanman.table.core.windows.net/Tables('Vanities')", $filter);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -24,7 +24,6 @@ catch(ServiceException $e){
     echo $code.": ".$error_message."<br />";
 }
 
-var_dump($result);
 echo "Methods:<br/>";
 var_dump(get_class_methods($result));
 
