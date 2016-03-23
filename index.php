@@ -54,6 +54,10 @@ foreach($entities as $entity){
 		if ($value instanceof DateTime) {
 			$value = $value->format("d-m-Y @ h:i:s a");
 		}
+		elseif($column == "RowKey")
+		{
+			$value = base64_decode($value);
+		}
 		
 		$body.="<td>$value</td>";
 	}		
