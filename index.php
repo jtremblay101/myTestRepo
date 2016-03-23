@@ -33,17 +33,21 @@ $body = "";
 foreach($entities as $entity){
 	$body .= "<tr>";
 	
-	echo "Entity:<br/>";
-	var_dump($entity);
+	// echo "Entity:<br/>";
+	// var_dump($entity);
 	
-	echo "Properties:<br/>";
+	// echo "Properties:<br/>";
 	$properties = ($entity->getProperties());
 	
 	foreach($properties as $property => $propObject)
 	{
-		echo "Value:<br/>";
+		// echo "Value:<br/>";
 		
-		var_dump($property);
+		if($i ==0)
+		{
+			$columns[] = ($property);
+		
+		}
 		$value = ($propObject->getValue());
 		if ($value instanceof DateTime) {
 			$value = $value->format("d-m-Y @ h:i:s a");
@@ -52,8 +56,8 @@ foreach($entities as $entity){
 	}
 	
 	
-	echo "Methods:<br/>";
-	var_dump(get_class_methods($entity));
+	// echo "Methods:<br/>";
+	// var_dump(get_class_methods($entity));
 	
 		
 	$body .= "</tr>";
@@ -74,6 +78,12 @@ echo "
 		</tbody>
 	</table>
 ";
+?>
+<style>
+table, th, td {
+   border: 1px solid black;
+}
+</style>
 
 
 
