@@ -4,6 +4,7 @@ require_once 'azure\WindowsAzure\WindowsAzure.php';
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\Table\Models\QueryEntitiesOptions;
+use WindowsAzure\Table\Models\Filters\Filter;
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=vanman;AccountKey=QdWBBF/0E+rYpBrk5YC0kyV7CxRgnP9CP0AhQG4Q9R8cDIFIbIyHHwoK3I+GgAlfOb4V7ifiDZ6BRBDsGvefIQ==";
 
