@@ -36,6 +36,10 @@ foreach($entities as $entity){
 	echo "Entity:<br/>";
 	var_dump($entity);
 	
+	echo "Properties:<br/>";
+	var_dump(getProperties($entity));
+	
+	
 	echo "Methods:<br/>";
 	var_dump(get_class_methods($entity));
 	$body.="<td></td>";
