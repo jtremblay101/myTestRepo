@@ -37,7 +37,13 @@ foreach($entities as $entity){
 	var_dump($entity);
 	
 	echo "Properties:<br/>";
-	var_dump($entity->getProperties());
+	$properties = ($entity->getProperties());
+	
+	foreach($properties as $property => $propObject)
+	{
+		echo "Value:<br/>";
+		var_dump($propObject->getValue());
+	}
 	
 	
 	echo "Methods:<br/>";
