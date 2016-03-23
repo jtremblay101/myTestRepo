@@ -37,7 +37,7 @@ foreach($entities as $entity){
 	var_dump($entity);
 	
 	echo "Properties:<br/>";
-	var_dump(getProperties($entity));
+	var_dump($entity->getProperties());
 	
 	
 	echo "Methods:<br/>";
