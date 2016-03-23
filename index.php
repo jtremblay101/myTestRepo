@@ -25,10 +25,10 @@ catch(ServiceException $e){
 }
 
 var_dump($result);
+echo "Methods:<br/>";
+var_dump(get_class_methods($result));
 
 $entities = $result->getEntities();
-
-var_dump($entities);
 
 $i=0;
 $columns = [];
