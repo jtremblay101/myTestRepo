@@ -36,20 +36,10 @@ foreach($entities as $entity){
 	echo "Entity:<br/>";
 	var_dump($entity);
 	
-	foreach($entity as $column => $value)
-	{
-		echo "Column:<br/>";
-		var_dump($column);
+	echo "Methods:<br/>";
+	echo get_class_methods($entity);
+	$body.="<td>$value</td>";
 		
-		echo "Value:";
-		var_dump($value);
-		if($i==0)
-		{
-			$columns[] = $column;
-		}
-		
-		$body.="<td>$value</td>";
-	}
 	$body .= "</tr>";
 	$i++;
 }
