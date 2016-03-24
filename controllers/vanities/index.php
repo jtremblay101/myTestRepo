@@ -11,7 +11,7 @@ if(isset($_POST["action"]))
 	elseif($action == "edit")
 	{
 		echo json_encode([
-			"data" => [$_POST["data"][1]]
+			"data" => $_POST["data"]
 			]);		
 	}
 	else

@@ -80,9 +80,7 @@
 					]
 					,select: "single"
 				}
-			});
-			
-			var editor = new $.fn.dataTable.Editor( {} );
+			});			
 		});
 	</script>
 </head>
