@@ -38,19 +38,19 @@ $nextRK=$result->getNextRowKey();
 
 // echo "Count:".count($entities)." Next PK:".$nextPK." RK:".$nextRK."<br>\n";
 
-while ($nextPK <> NULL && $nextPK <> "" ) {
-    $options = new QueryEntitiesOptions();
-    $options->setFilter(Filter::applyQueryString($filter));
-    $options->setNextPartitionKey($nextPK);
-    $options->setNextRowKey($nextRK);
-    $result = $tableRestProxy->queryEntities($scale, $options);        
-    $nextPK=$result->getNextPartitionKey();
-    $nextRK=$result->getNextRowKey();
-    $newentities=$result->getEntities();       
+// while ($nextPK <> NULL && $nextPK <> "" ) {
+    // $options = new QueryEntitiesOptions();
+    // $options->setFilter(Filter::applyQueryString($filter));
+    // $options->setNextPartitionKey($nextPK);
+    // $options->setNextRowKey($nextRK);
+    // $result = $tableRestProxy->queryEntities($scale, $options);        
+    // $nextPK=$result->getNextPartitionKey();
+    // $nextRK=$result->getNextRowKey();
+    // $newentities=$result->getEntities();       
 
-    // echo "Count:".count($newentities)." Next PK:".$nextPK." RK:".$nextRK."<br>\n";
-    $entities=array_merge($newentities, $entities);    
-}
+    // //echo "Count:".count($newentities)." Next PK:".$nextPK." RK:".$nextRK."<br>\n";
+    // $entities=array_merge($newentities, $entities);    
+// }
 
 $i=0;
 $columns = ["Row Number"];
