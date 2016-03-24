@@ -72,21 +72,13 @@
 					dom: 'Bflrtip'
 					,buttons: [
 						{ extend: "create", editor: editor }
-						,{ 
-							extend: 'selectedSingle'
-							, text:"Edit" 
-							, action: function ( e, dt, button, config){
-								editor.edit(
-									dt.rows( { selected: true } ).indexes()
-								);
-							}
-						}
+						,{ extend: 'edit', editor: editor }
 						,{ extend: "remove", editor: editor }
 						,'colvis'
 						,'excel'
 						,'print'
 					]
-					,select: true
+					,select: "single"
 				}
 			});
 			
