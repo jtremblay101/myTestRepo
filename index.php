@@ -57,7 +57,8 @@ $columns = ["Row Number"];
 $body = "";
 
 foreach($entities as $entity){
-	$body .= "<tr><td>". $i+1 ."</td>";
+	$rowNum = $i+1;
+	$body .= "<tr><td>$rowNum</td>";
 	
 	// echo "Entity:<br/>";
 	// var_dump($entity);
@@ -126,7 +127,7 @@ $table = "
 			editor = new $.fn.dataTable.Editor( {
 				ajax: "controllers/vanities/index.php",
 				table: "#vanmanTable",
-				idSrc: "Row Number",
+				idSrc: "Row Number:",
 				fields: [ {
 						label: "Row Key:",
 						name: "RowKey"
