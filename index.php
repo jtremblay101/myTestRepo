@@ -57,7 +57,7 @@ $columns = ["Row Number"];
 $body = "";
 
 foreach($entities as $entity){
-	$body .= "<tr><td>".$i+1 ."</td>";
+	$body .= "<tr><td>". $i+1 ."</td>";
 	
 	// echo "Entity:<br/>";
 	// var_dump($entity);
@@ -78,7 +78,7 @@ foreach($entities as $entity){
 		$value = $entity->getPropertyValue($column);
 		
 		if ($value instanceof DateTime) {
-			$value = $value->format("d-m-Y @ h:i:s a");
+			$value = $value->format("d-m-Y h:i:s a");
 		}
 		elseif($column == "RowKey")
 		{
@@ -86,7 +86,7 @@ foreach($entities as $entity){
 		}
 		
 		$body.="<td>$value</td>";
-	}		
+	}
 	
 	// echo "Methods:<br/>";
 	// var_dump(get_class_methods($entity));
