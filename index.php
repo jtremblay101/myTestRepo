@@ -58,7 +58,7 @@ $body = "";
 
 foreach($entities as $entity){
 	
-	$body .= "<tr><td></td>";
+	$body .= "<tr>";
 	
 	// echo "Entity:<br/>";
 	// var_dump($entity);
@@ -119,6 +119,9 @@ $table = "
 	
 	<script type="text/javascript" src="assets\DataTables/datatables.js"></script>
 	<script type="text/javascript" src="assets\DataTables/Editor-PHP-1.5.5/js/dataTables.editor.js"></script>
+	
+	<script type="text/javascript" src="assets\js/functions.js"></script>
+	
 	<script>
 		var editor; // use a global for the submit and return data rendering in the examples
 		$(function(){
