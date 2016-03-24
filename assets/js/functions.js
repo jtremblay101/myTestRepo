@@ -1,3 +1,30 @@
+//////////////////////////////////////////////////
+// All the best functions after this line!		//
+//////////////////////////////////////////////////
+/**
+* @title jsonDataTable
+*
+* @description This function will send an ajax request to the "url"
+* 					you specify, which should echo a json_encode() array
+* 					of results, ie: from a SQL runQuery; and auto populate
+*					a table with the "id" specified with the column headers
+*					being the associated keys of the json object, and the 
+*					data being loaded from the json object to the rows of 
+*					the table.
+* @params 
+*		param(id) -> Either the 'id' of the table to use,
+*					or the 'param' object with all available
+*					options, including 'id' and all other 
+*					parameters.
+*			*id -> The id of the table you want to apply 
+*					everything to. 
+*			*url -> The url of the ajax page which will echo
+*					the associated json_encode() object.
+*			*postObj -> The object that is passed to the ajax
+*					page.
+*			*dataTableOpts -> The datatable custom options after it
+*					passes the "data" and "columns" options.
+*/
 function jsonDataTable(param,url,postObj,dataTableOpts)
 {
 	var tableId= "";
