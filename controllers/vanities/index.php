@@ -1,5 +1,7 @@
 <?
 if(isset($_POST["action"]))
 {
-	echo json_encode($_POST["data"]);
+	echo json_encode([
+		"data" => $_POST["data"]
+		]);
 }
