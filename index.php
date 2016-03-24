@@ -82,7 +82,7 @@
 							}
 						}
 						,{ extend: "remove", editor: editor }
-						'colvis'
+						,'colvis'
 						,'excel'
 						,'print'
 					]
