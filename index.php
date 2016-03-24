@@ -27,8 +27,24 @@
 				table: "#vanmanTable",
 				idSrc: "Row Number",
 				fields: [ {
+						type:  "readonly",
+						label: "Row Number:",
+						name: "Row Number"
+					},{{
+						type:  "readonly",
+						label: "Partition Key:",
+						name: "PartitionKey"
+					}, {
 						label: "Row Key:",
 						name: "RowKey"
+					}, {{
+						type:  "readonly",
+						label: "Timestamp:",
+						name: "Timestamp"
+					}, {{
+						type:  "readonly",
+						label: "Options:",
+						name: "Options"
 					}, {
 						label: "Destination:",
 						name: "Destination"
