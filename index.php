@@ -71,12 +71,20 @@
 				,dataTableOpts: {
 					dom: 'Bflrtip'
 					,buttons: [
+						{ extend: "create", editor: editor }
+						,{ 
+							extend: 'selectedSingle'
+							, text:"Edit" 
+							, action: function ( e, dt, button, config){
+								editor.edit(
+									dt.rows( { selected: true } ).indexes()
+								);
+							}
+						}
+						,{ extend: "remove", editor: editor }
 						'colvis'
 						,'excel'
 						,'print'
-						,{ extend: "create", editor: editor }
-						,{ extend: 'selectedSingle', test:"Edit", editor: editor }
-						,{ extend: "remove", editor: editor }
 					]
 					,select: true
 				}
