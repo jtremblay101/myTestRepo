@@ -53,11 +53,11 @@ while ($nextPK <> NULL && $nextPK <> "" ) {
 }
 
 $i=0;
-$columns = [];
+$columns = ["Row Number"];
 $body = "";
 
 foreach($entities as $entity){
-	$body .= "<tr>";
+	$body .= "<tr><td>".$i+1 ."</td>";
 	
 	// echo "Entity:<br/>";
 	// var_dump($entity);
@@ -126,7 +126,7 @@ $table = "
 			editor = new $.fn.dataTable.Editor( {
 				ajax: "controllers/vanities/index.php",
 				table: "#vanmanTable",
-				idSrc: "RowKey",
+				idSrc: "Row Number",
 				fields: [ {
 						label: "Row Key:",
 						name: "RowKey"
