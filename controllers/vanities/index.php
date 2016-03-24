@@ -12,7 +12,7 @@ if(isset($_POST["action"]))
 	{
 		$error = [
 			"error" => "There was a problem editing your stuff."
-		]
+		];
 		echo json_encode($error);
 	}
 	else
