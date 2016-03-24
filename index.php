@@ -22,7 +22,7 @@
 			editor = new $.fn.dataTable.Editor( {
 				ajax: {
 					"url": "controllers/vanities/index.php",
-					"dataSrc": ""
+					"dataSrc": "data"
 					},
 				table: "#vanmanTable",
 				idSrc: "Row Number",
