@@ -17,6 +17,6 @@ if(isset($_POST["action"]))
 	}
 	else
 	{
-		echo {};
+		echo json_encode([]);
 	}
 }
