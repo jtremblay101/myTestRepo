@@ -126,6 +126,7 @@ $table = "
 			editor = new $.fn.dataTable.Editor( {
 				ajax: "controllers/vanities/index.php",
 				table: "#vanmanTable",
+				idSrc: "RowKey",
 				fields: [ {
 						label: "Row Key:",
 						name: "RowKey"
@@ -142,16 +143,6 @@ $table = "
 					'colvis'
 					,'excel'
 					,'print'
-					,{
-						extend: 'selected',
-						text: "Edit",
-						action: function ( e, dt, node, config ) {
-							var rows = dt.rows( { selected: true } );
-							var numRows = rows.count();
-				
-							console.log(rows.data()[0]);
-						}
-					}
 					, { extend: "create", editor: editor },
 					{ extend: "edit",   editor: editor },
 					{ extend: "remove", editor: editor }
