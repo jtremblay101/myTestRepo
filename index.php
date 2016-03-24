@@ -57,8 +57,8 @@ $columns = ["Row Number"];
 $body = "";
 
 foreach($entities as $entity){
-	$rowNum = $i+1;
-	$body .= "<tr><td>$rowNum</td>";
+	
+	$body .= "<tr><td></td>";
 	
 	// echo "Entity:<br/>";
 	// var_dump($entity);
