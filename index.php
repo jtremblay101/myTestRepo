@@ -78,7 +78,10 @@ foreach($entities as $entity){
 	{
 		$value = $entity->getPropertyValue($column);
 		
-		if ($value instanceof DateTime) {
+		if($column == "Row Number"){
+			$value = $i+1;
+		}
+		else if ($value instanceof DateTime) {
 			$value = $value->format("d-m-Y h:i:s a");
 		}
 		elseif($column == "RowKey")
