@@ -20,7 +20,10 @@
 			
  
 			editor = new $.fn.dataTable.Editor( {
-				ajax: "controllers/vanities/index.php",
+				ajax: {
+					"url": "controllers/vanities/index.php",
+					"dataSrc": ""
+					},
 				table: "#vanmanTable",
 				idSrc: "Row Number",
 				fields: [ {
@@ -47,7 +50,7 @@
 						{ extend: "edit",   editor: editor },
 						{ extend: "remove", editor: editor }
 					]
-					,select: true
+					,select: "single"
 				}
 			});
 			
