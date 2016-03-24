@@ -88,7 +88,7 @@ foreach($entities as $entity){
 			$value = base64_decode($value);
 		}
 		
-		$data[$i] =[ "$column" => "$value" ];
+		$data[$i][] =[ "$column" => "$value" ];
 	}
 	
 	// echo "Methods:<br/>";
