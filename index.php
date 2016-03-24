@@ -115,9 +115,9 @@ $table = "
 	<script type="text/javascript" src="assets\DataTables\jQuery-2.2.0\jquery-2.2.0.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets\DataTables/datatables.css"/>
 	<link rel="stylesheet" type="text/css" href="assets\DataTables/Editor-PHP-1.5.5/css/editor.dataTables.css">
-  
-	<script type="text/javascript" src="assets\DataTables/Editor-PHP-1.5.5/js/dataTables.editor.js"></script>
+	
 	<script type="text/javascript" src="assets\DataTables/datatables.js"></script>
+	<script type="text/javascript" src="assets\DataTables/Editor-PHP-1.5.5/js/dataTables.editor.js"></script>
 	<script>
 		var editor; // use a global for the submit and return data rendering in the examples
 		$(function(){
