@@ -97,5 +97,5 @@ foreach($entities as $entity){
 	$i++;
 }
 
-echo var_dump($data);
+echo json_encode($data);
 ?>
