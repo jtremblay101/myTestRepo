@@ -29,22 +29,34 @@
 				fields: [ {
 						type:  "readonly",
 						label: "Row Number:",
-						name: "Row Number"
+						name: "Row Number",
+						attr:  {
+							placeholder: 'Read Only'
+						}
 					},{
 						type:  "readonly",
 						label: "Partition Key:",
-						name: "PartitionKey"
+						name: "PartitionKey",
+						attr:  {
+							placeholder: 'Read Only'
+						}
 					}, {
 						label: "Row Key:",
 						name: "RowKey"
 					}, {
 						type:  "readonly",
 						label: "Timestamp:",
-						name: "Timestamp"
+						name: "Timestamp",
+						attr:  {
+							placeholder: 'Read Only'
+						}
 					}, {
 						type:  "readonly",
 						label: "Options:",
-						name: "Options"
+						name: "Options",
+						attr:  {
+							placeholder: 'Read Only'
+						}
 					}, {
 						label: "Destination:",
 						name: "Destination"
