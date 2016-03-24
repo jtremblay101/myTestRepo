@@ -322,3 +322,18 @@ function json_decode(str_json) {
 	this.php_js.last_error_json = 4; // usable by json_last_error()
 	return null;
 }
+
+
+//////////////////////////////////////////////////
+// All Force functions after this line!		//
+//////////////////////////////////////////////////
+
+function showError(text, title, minWidth) {
+	if(!isset(title))
+		title= 'Welcome to the Error Dialog!';
+	$('#errorDialog').dialog('option','title',title);
+	if (!isset(minWidth) || minWidth.length > 0)
+		var minWidth = 800;
+	$('#errorDialog').dialog('option','minWidth', minWidth);
+	$('#errorDialog').html(text).dialog('open');
+}

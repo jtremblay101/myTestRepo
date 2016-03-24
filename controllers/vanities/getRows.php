@@ -58,7 +58,7 @@ $data = [];
 
 
 foreach($entities as $entity){
-	$data[$i] = []
+	$data[$i] = [];
 	// echo "Entity:<br/>";
 	// var_dump($entity);
 	
