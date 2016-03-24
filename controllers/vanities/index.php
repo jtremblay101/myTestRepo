@@ -10,10 +10,9 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "edit")
 	{
-		$error = [
-			"error" => "There was a problem editing your stuff."
-		];
-		echo json_encode($error);
+		echo json_encode([
+			"data" => $_POST["data"]
+			]);		
 	}
 	else
 	{
