@@ -74,11 +74,11 @@
 						'colvis'
 						,'excel'
 						,'print'
-						, { extend: "create", editor: editor },
-						{ extend: "edit",   editor: editor },
-						{ extend: "remove", editor: editor }
+						,{ extend: "create", editor: editor }
+						,{ extend: 'selectedSingle', test:"Edit", editor: editor }
+						,{ extend: "remove", editor: editor }
 					]
-					,select: "single"
+					,select: true
 				}
 			});
 			
