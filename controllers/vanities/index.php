@@ -73,7 +73,7 @@ if(isset($_POST["action"]))
 			$newEntity->addProperty("Destination", null, $Destination);
 			
 			try{
-				$tableRestProxy->insertEntity($table, $entity);
+				$tableRestProxy->insertEntity($table, $newEntity);
 			}
 			catch(ServiceException $e){
 				// Handle exception based on error codes and messages.
@@ -83,6 +83,7 @@ if(isset($_POST["action"]))
 				$error_message = $e->getMessage();
 			}
 			
+			$data[0]["Row Number"] = "New";
 			echo json_encode($data);
 		}
 	}

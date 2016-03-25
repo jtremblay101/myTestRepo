@@ -25,7 +25,7 @@
 					"dataSrc": ""
 					},
 				table: "#vanmanTable",
-				idSrc: "Row Number",
+				idSrc: "RowKey",
 				fields: [ {
 						type:  "readonly",
 						label: "Row Number:",
