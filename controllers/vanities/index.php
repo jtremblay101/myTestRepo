@@ -156,7 +156,7 @@ if(isset($_POST["action"]))
 				if(strlen($error_message)>0)
 				{
 					echo json_encode([
-					"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+						"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
 					]);
 				}
 				else
