@@ -142,7 +142,7 @@ if(isset($_POST["action"]))
 			
 				$error_message = "";
 				try{
-					$edited = $tableRestProxy->updateEntity($table, $editEntity);
+					$tableRestProxy->updateEntity($table, $editEntity);
 				}
 				catch(ServiceException $e){
 					// Handle exception based on error codes and messages.
@@ -160,7 +160,6 @@ if(isset($_POST["action"]))
 				}
 				else
 				{
-					$data[0]["Row Number"] = "New";
 					echo json_encode(["data"=>$data]);				
 				}
 			}
