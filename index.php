@@ -46,7 +46,8 @@
 						// attr:  {
 							// placeholder: 'Read Only'
 						// }
-					}, {
+					// }
+					, {
 						label: "Row Key:",
 						name: "RowKey"
 					}, {
