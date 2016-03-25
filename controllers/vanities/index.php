@@ -117,7 +117,7 @@ if(isset($_POST["action"]))
 		else
 		{
 			
-			foreach($entities as $entity)
+			foreach($entities as $editEntity)
 			{
 				$editEntity->setPropertyValue("RowKey", $data[0]["Destination"]); //Modified Destination.
 				$editEntity->setPropertyValue("Destination", $data[0]["Destination"]); //Modified Destination.
