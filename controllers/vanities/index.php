@@ -85,7 +85,7 @@ if(isset($_POST["action"]))
 			}
 			
 			$data[0]["Row Number"] = "New";
-			echo json_encode($data);
+			echo json_encode(["data"=>$data);
 		}
 	}
 	elseif($action == "edit")
