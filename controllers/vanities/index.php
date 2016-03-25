@@ -66,7 +66,7 @@ if(isset($_POST["action"]))
 				"error" => "There already exists a row for that url. Please just edit that one."
 				]);
 		}
-		elseif(true == false)
+		else
 		{
 			$newEntity = new Entity();
 			$newEntity->setRowKey($RowKey);
