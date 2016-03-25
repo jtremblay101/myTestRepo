@@ -1,12 +1,13 @@
 <?
+require_once 'azure\WindowsAzure\WindowsAzure.php';
+	
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\Table\Models\QueryEntitiesOptions;
+use WindowsAzure\Table\Models\Filters\Filter;
+
 if(isset($_POST["action"]))
 {
-	require_once 'azure\WindowsAzure\WindowsAzure.php';
-	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Table\Models\QueryEntitiesOptions;
-	use WindowsAzure\Table\Models\Filters\Filter;
-
 	$connectionString = "DefaultEndpointsProtocol=https;AccountName=vanman;AccountKey=QdWBBF/0E+rYpBrk5YC0kyV7CxRgnP9CP0AhQG4Q9R8cDIFIbIyHHwoK3I+GgAlfOb4V7ifiDZ6BRBDsGvefIQ==";
 
 
@@ -14,13 +15,14 @@ if(isset($_POST["action"]))
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
 	$action = $_POST["action"];
-	$data = $_POST["data"];
+	$data = array_values($_POST["data"]);
+	$RowKey = base64_encode( $row["RowKey"] );
+	$Destination = ( $row["Destination"] );
 	
 	if($action == "create")
 	{
 		foreach($data as $row)
 		{
-			$RowKey = base64_encode( $row["RowKey"] );
 			$filter = "RowKey eq '$RowKey'";					
 		}
 	}
@@ -36,9 +38,9 @@ if(isset($_POST["action"]))
 	}
 	
 	
-	$scale = "Vanities";
+	$table = "Vanities";
 	try {
-		$result = $tableRestProxy->queryEntities($scale, $filter);
+		$result = $tableRestProxy->queryEntities($table, $filter);
 	}
 		catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
@@ -59,9 +61,24 @@ if(isset($_POST["action"]))
 				"error" => "There already exists a row for that url. Please just edit that one.";
 				]);
 		}
-		else
+		elseif(true == false)
 		{
+			$newEntity = new Entity();
+			$newEntity->setRowKey($RowKey);
+			$newEntity->addProperty("Destination", null, $Destination);
 			
+			try{
+				$tableRestProxy->insertEntity($table, $entity);
+			}
+			catch(ServiceException $e){
+				// Handle exception based on error codes and messages.
+				// Error codes and messages are here:
+				// http://msdn.microsoft.com/library/azure/dd179438.aspx
+				$code = $e->getCode();
+				$error_message = $e->getMessage();
+			}
+			
+			echo json_encode($data);
 		}
 	}
 	elseif($action == "edit")

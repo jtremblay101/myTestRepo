@@ -13,9 +13,9 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=vanman;AccountKe
 $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 $filter = "";
-$scale = "Vanities";
+$table = "Vanities";
 try {
-    $result = $tableRestProxy->queryEntities($scale, $filter);
+    $result = $tableRestProxy->queryEntities($table, $filter);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -43,7 +43,7 @@ $nextRK=$result->getNextRowKey();
     // $options->setFilter(Filter::applyQueryString($filter));
     // $options->setNextPartitionKey($nextPK);
     // $options->setNextRowKey($nextRK);
-    // $result = $tableRestProxy->queryEntities($scale, $options);        
+    // $result = $tableRestProxy->queryEntities($table, $options);        
     // $nextPK=$result->getNextPartitionKey();
     // $nextRK=$result->getNextRowKey();
     // $newentities=$result->getEntities();       
