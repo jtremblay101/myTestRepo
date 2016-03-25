@@ -169,7 +169,27 @@ if(isset($_POST["action"]))
 	}
 	else
 	{
-		echo json_encode([]);
+		try{			
+			$tableRestProxy->deleteEntity($table, "", $RowKey);
+		}
+		catch(ServiceException $e){
+			// Handle exception based on error codes and messages.
+			// Error codes and messages are here:
+			// http://msdn.microsoft.com/library/azure/dd179438.aspx
+			$code = $e->getCode();
+			$error_message = "On delete add: ".$e->getMessage();
+		}
+		
+		if(strlen($error_message)>0)
+		{
+			echo json_encode([
+				"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+			]);
+		}
+		else
+		{
+			echo json_encode([]);				
+		}
 	}
 	
 }
