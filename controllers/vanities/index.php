@@ -73,6 +73,7 @@ if(isset($_POST["action"]))
 			$newEntity->setRowKey($RowKey);
 			$newEntity->addProperty("Destination", null, $Destination);
 			
+			$inserted = "";
 			try{
 				$inserted = $tableRestProxy->insertEntity($table, $newEntity);
 			}
