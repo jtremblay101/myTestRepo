@@ -25,7 +25,7 @@
 					"dataSrc": "",
 					data: function ( d ) {
 						return $.extend( {}, d, {
-							previousRowKey: $("#vanmanTable selected td:nth-child(3)").text();
+							previousRowKey: $("#vanmanTable selected td:nth-child(3)").text()
 						} );
 					}
 					},
