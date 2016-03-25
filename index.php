@@ -30,7 +30,7 @@
 					}
 					},
 				table: "#vanmanTable",
-				idSrc: "RowNumber",
+				idSrc: "Row Number",
 				fields: [ {
 						type:  "readonly",
 						label: "Row Number:",
