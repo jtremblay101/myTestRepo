@@ -118,36 +118,54 @@ if(isset($_POST["action"]))
 		{
 			
 			foreach($entities as $editEntity)
-			{
-				$editEntity->setPropertyValue("RowKey", $data[0]["Destination"]); //Modified Destination.
+			{			
+				if($RowKey != $previousRowKey)
+				{
+				
+					$error_message = "";
+					try{
+						$editEntity = $tableRestProxy->insertEntity($table, $editEntity);
+					}
+					catch(ServiceException $e){
+						// Handle exception based on error codes and messages.
+						// Error codes and messages are here:
+						// http://msdn.microsoft.com/library/azure/dd179438.aspx
+						$code = $e->getCode();
+						$error_message = $e->getMessage();
+					}
+					
+					$tableRestProxy->deleteEntity($table, "", $previousRowKey);
+					
+				}
+				
 				$editEntity->setPropertyValue("Destination", $data[0]["Destination"]); //Modified Destination.
-			}
 			
-			$error_message = "";
-			try{
-				$edited = $tableRestProxy->updateEntity($table, $editEntity);
+				$error_message = "";
+				try{
+					$edited = $tableRestProxy->updateEntity($table, $editEntity);
+				}
+				catch(ServiceException $e){
+					// Handle exception based on error codes and messages.
+					// Error codes and messages are here:
+					// http://msdn.microsoft.com/library/azure/dd179438.aspx
+					$code = $e->getCode();
+					$error_message = $e->getMessage();
+				}
+				
+				if(strlen($error_message)>0)
+				{
+					echo json_encode([
+					"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+					]);
+				}
+				else
+				{
+					$data[0]["Row Number"] = "New";
+					echo json_encode(["data"=>$data]);				
+				}
 			}
-			catch(ServiceException $e){
-				// Handle exception based on error codes and messages.
-				// Error codes and messages are here:
-				// http://msdn.microsoft.com/library/azure/dd179438.aspx
-				$code = $e->getCode();
-				$error_message = $e->getMessage();
-			}
-			
-			if(strlen($error_message)>0)
-			{
-				echo json_encode([
-				"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
-				]);
-			}
-			else
-			{
-				$data[0]["Row Number"] = "New";
-				echo json_encode(["data"=>$data]);				
-			}
-			
 		}
+		
 	}
 	else
 	{
