@@ -20,7 +20,7 @@ if(isset($_POST["action"]))
 	{
 		foreach($data as $row)
 		{
-			$RowKey = $row["RowKey"];
+			$RowKey = base64_encode( $row["RowKey"] );
 			$filter = "RowKey eq '$RowKey'";					
 		}
 	}
@@ -58,6 +58,10 @@ if(isset($_POST["action"]))
 			echo json_encode([
 				"error" => "There already exists a row for that url. Please just edit that one.";
 				]);
+		}
+		else
+		{
+			
 		}
 	}
 	elseif($action == "edit")
