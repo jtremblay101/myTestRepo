@@ -84,12 +84,7 @@ if(isset($_POST["action"]))
 		}
 		else
 		{
-			
-			var_dump($entities);
-			var_dump($filter);
-			
-			exit;
-			
+						
 			$newEntity = new Entity();
 			$newEntity->setPartitionKey("");
 			$newEntity->setRowKey($RowKey);
@@ -109,7 +104,7 @@ if(isset($_POST["action"]))
 			if(strlen($error_message)>0)
 			{
 				echo json_encode([
-				"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+				"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_messag"
 				]);
 			}
 			else
@@ -124,6 +119,9 @@ if(isset($_POST["action"]))
 	{
 		if(!count($entities)>0)
 		{
+			var_dump($entities);
+			var_dump((!count($entities)>0));
+			
 			echo json_encode([
 				"error" => "There is no entry to edit. Please refresh your page to get the latest data. If issue persists, please contact the Marketing Technology Team."
 				]);
