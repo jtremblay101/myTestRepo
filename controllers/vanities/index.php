@@ -124,7 +124,7 @@ if(isset($_POST["action"]))
 					$editEntity->setRowKey("$RowKey");
 					$error_message = "";
 					try{
-						$editEntity = $tableRestProxy->insertEntity($table, $editEntity);
+						$tableRestProxy->insertEntity($table, $editEntity);
 						$tableRestProxy->deleteEntity($table, "", $previousRowKey);
 					}
 					catch(ServiceException $e){
@@ -134,9 +134,9 @@ if(isset($_POST["action"]))
 						$code = $e->getCode();
 						$error_message = "On delete add: ".$e->getMessage();
 					}
-					
-					
-					
+					$newResult = $tableRestProxy->getEntity($table, "", $RowKey);
+
+					$editEntity = $result->getEntity();
 				}
 				
 				$editEntity->setPropertyValue("Destination", $data[0]["Destination"]); //Modified Destination.
