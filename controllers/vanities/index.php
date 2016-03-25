@@ -18,6 +18,7 @@ if(isset($_POST["action"]))
 	
 	$action = $_POST["action"];
 	$data = array_values($_POST["data"]);
+	$table = "Vanities";
 		
 	$RowKey = "";
 	$Destination = "";
@@ -55,8 +56,7 @@ if(isset($_POST["action"]))
 	}
 	
 	if($action == "create" || $action == "edit")
-	{
-		$table = "Vanities";
+	{		
 		try {
 			$result = $tableRestProxy->queryEntities($table, $filter);
 		}
