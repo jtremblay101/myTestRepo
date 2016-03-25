@@ -136,7 +136,7 @@ if(isset($_POST["action"]))
 					}
 					$newResult = $tableRestProxy->getEntity($table, "", $RowKey);
 
-					$editEntity = $result->getEntity();
+					$editEntity = $newResult->getEntity();
 				}
 				
 				$editEntity->setPropertyValue("Destination", $data[0]["Destination"]); //Modified Destination.
