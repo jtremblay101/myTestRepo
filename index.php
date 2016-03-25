@@ -84,6 +84,8 @@
 						,'print'
 					]
 					,select: "single"
+					,stateSave: true
+					,"stateDuration": 60 * 60 * 24
 				}
 			});			
 		});
