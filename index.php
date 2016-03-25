@@ -38,13 +38,14 @@
 						attr:  {
 							placeholder: 'Read Only'
 						}
-					},{
-						type:  "readonly",
-						label: "Partition Key:",
-						name: "PartitionKey",
-						attr:  {
-							placeholder: 'Read Only'
-						}
+					}
+					// ,{
+						// type:  "readonly",
+						// label: "Partition Key:",
+						// name: "PartitionKey",
+						// attr:  {
+							// placeholder: 'Read Only'
+						// }
 					}, {
 						label: "Row Key:",
 						name: "RowKey"

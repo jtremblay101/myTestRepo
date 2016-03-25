@@ -75,6 +75,10 @@ foreach($entities as $entity){
 	
 	foreach($columns as $column)
 	{
+		if($column == "PartitionKey")
+		{
+			continue;
+		}
 		$value = $entity->getPropertyValue($column);
 		
 		if($column == "Row Number"){
