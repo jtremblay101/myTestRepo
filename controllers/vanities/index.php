@@ -69,7 +69,7 @@ if(isset($_POST["action"]))
 		else
 		{
 			$newEntity = new Entity();
-			$entity->setPartitionKey("");
+			$newEntity->setPartitionKey("");
 			$newEntity->setRowKey($RowKey);
 			$newEntity->addProperty("Destination", null, $Destination);
 			
