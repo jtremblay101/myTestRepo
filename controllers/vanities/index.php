@@ -46,6 +46,8 @@ if(isset($_POST["action"]))
 	}
 	else
 	{
+		$RowKey = base64_encode( $row["RowKey"] );
+		$filter = "";
 		echo json_encode([]);
 	}
 	
@@ -167,7 +169,7 @@ if(isset($_POST["action"]))
 		}
 		
 	}
-	else
+	elseif($action == "remove")
 	{
 		try{			
 			$tableRestProxy->deleteEntity($table, "", $RowKey);
