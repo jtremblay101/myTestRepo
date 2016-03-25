@@ -22,7 +22,12 @@
 			editor = new $.fn.dataTable.Editor( {
 				ajax: {
 					"url": "controllers/vanities/index.php",
-					"dataSrc": ""
+					"dataSrc": "",
+					data: function ( d ) {
+						return $.extend( {}, d, {
+							previousRowKey: $("#vanmanTable selected td:nth-child(3)").text();
+						} );
+					}
 					},
 				table: "#vanmanTable",
 				idSrc: "RowKey",

@@ -33,9 +33,12 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "edit")
 	{
-		echo json_encode([
-			"data" => array_values($_POST["data"])
-			]);		
+		foreach($data as $row)
+		{
+			$RowKey = base64_encode( $row["RowKey"] );
+			$Destination = ( $row["Destination"] );
+			$filter = "RowKey eq '$RowKey'";					
+		}		
 	}
 	else
 	{
@@ -73,7 +76,7 @@ if(isset($_POST["action"]))
 			$newEntity->setRowKey($RowKey);
 			$newEntity->addProperty("Destination", null, $Destination);
 			
-			$inserted = "";
+			$error_message = "";
 			try{
 				$inserted = $tableRestProxy->insertEntity($table, $newEntity);
 			}
@@ -85,15 +88,62 @@ if(isset($_POST["action"]))
 				$error_message = $e->getMessage();
 			}
 			
-			var_dump($inserted);
+			if(strlen($error_message)>0)
+			{
+				echo json_encode([
+				"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+				]);
+			}
+			else
+			{
+				$data[0]["Row Number"] = "New";
+				echo json_encode(["data"=>$data]);				
+			}
 			
-			$data[0]["Row Number"] = "New";
-			echo json_encode(["data"=>$data]);
 		}
 	}
 	elseif($action == "edit")
 	{
+		if(!count($entities)>0)
+		{
+			echo json_encode([
+				"error" => "There is no entry to edit. Please refresh your page to get the latest data. If issue persists, please contact the Marketing Technology Team."
+				]);
+		}
+		elseif(true== false)
+		{
 			
+			foreach($entities as $entity)
+			{
+				$editEntity->setPropertyValue("RowKey", $data[0]["Destination"]); //Modified Destination.
+				$editEntity->setPropertyValue("Destination", $data[0]["Destination"]); //Modified Destination.
+			}
+			
+			$error_message = "";
+			try{
+				$edited = $tableRestProxy->updateEntity($table, $editEntity);
+			}
+			catch(ServiceException $e){
+				// Handle exception based on error codes and messages.
+				// Error codes and messages are here:
+				// http://msdn.microsoft.com/library/azure/dd179438.aspx
+				$code = $e->getCode();
+				$error_message = $e->getMessage();
+			}
+			
+			if(strlen($error_message)>0)
+			{
+				echo json_encode([
+				"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+				]);
+			}
+			else
+			{
+				$data[0]["Row Number"] = "New";
+				echo json_encode(["data"=>$data]);				
+			}
+			
+		}
 	}
 	else
 	{
