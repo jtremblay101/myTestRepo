@@ -84,6 +84,10 @@ if(isset($_POST["action"]))
 		}
 		else
 		{
+			
+			var_dump($entities);
+			exit;
+			
 			$newEntity = new Entity();
 			$newEntity->setPartitionKey("");
 			$newEntity->setRowKey($RowKey);
