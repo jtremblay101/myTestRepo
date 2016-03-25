@@ -18,13 +18,16 @@ if(isset($_POST["action"]))
 	
 	$action = $_POST["action"];
 	$data = array_values($_POST["data"]);
-	$RowKey = base64_encode( $row["RowKey"] );
-	$Destination = ( $row["Destination"] );
+	
+	$RowKey = "";
+	$Destination = "";
 	
 	if($action == "create")
 	{
 		foreach($data as $row)
 		{
+			$RowKey = base64_encode( $row["RowKey"] );
+			$Destination = ( $row["Destination"] );
 			$filter = "RowKey eq '$RowKey'";					
 		}
 	}
