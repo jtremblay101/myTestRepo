@@ -18,9 +18,13 @@ if(isset($_POST["action"]))
 	
 	$action = $_POST["action"];
 	$data = array_values($_POST["data"]);
-	
+		
 	$RowKey = "";
 	$Destination = "";
+	if(isset($_POST["previousRowKey"]))
+	{
+		$previousRowKey = base64_encode($_POST["previousRowKey"]);		
+	}
 	
 	if($action == "create")
 	{
@@ -37,7 +41,7 @@ if(isset($_POST["action"]))
 		{
 			$RowKey = base64_encode( $row["RowKey"] );
 			$Destination = ( $row["Destination"] );
-			$filter = "RowKey eq '$RowKey'";					
+			$filter = "RowKey eq '$previousRowKey'";			
 		}		
 	}
 	else
@@ -110,7 +114,7 @@ if(isset($_POST["action"]))
 				"error" => "There is no entry to edit. Please refresh your page to get the latest data. If issue persists, please contact the Marketing Technology Team."
 				]);
 		}
-		elseif(true== false)
+		else
 		{
 			
 			foreach($entities as $entity)
