@@ -22,6 +22,8 @@ if(isset($_POST["action"]))
 		
 	$RowKey = "";
 	$Destination = "";
+	$error_message = "";
+	
 	if(isset($_POST["previousRowKey"]))
 	{
 		$previousRowKey = base64_encode($_POST["previousRowKey"]);		
@@ -87,7 +89,6 @@ if(isset($_POST["action"]))
 			$newEntity->setRowKey($RowKey);
 			$newEntity->addProperty("Destination", null, $Destination);
 			
-			$error_message = "";
 			try{
 				$inserted = $tableRestProxy->insertEntity($table, $newEntity);
 			}
@@ -129,7 +130,6 @@ if(isset($_POST["action"]))
 				if($RowKey != $previousRowKey)
 				{
 					$editEntity->setRowKey("$RowKey");
-					$error_message = "";
 					try{
 						$tableRestProxy->insertEntity($table, $editEntity);
 						$tableRestProxy->deleteEntity($table, "", $previousRowKey);
@@ -148,7 +148,7 @@ if(isset($_POST["action"]))
 				
 				$editEntity->setPropertyValue("Destination", $data[0]["Destination"]); //Modified Destination.
 			
-				$error_message = "";
+				
 				try{
 					$tableRestProxy->updateEntity($table, $editEntity);
 				}
