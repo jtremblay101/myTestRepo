@@ -5,6 +5,8 @@ use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\Table\Models\QueryEntitiesOptions;
 use WindowsAzure\Table\Models\Filters\Filter;
+use WindowsAzure\Table\Models\Entity;
+use WindowsAzure\Table\Models\EdmType;
 
 if(isset($_POST["action"]))
 {
@@ -58,7 +60,7 @@ if(isset($_POST["action"]))
 		if(count($entities)>0)
 		{
 			echo json_encode([
-				"error" => "There already exists a row for that url. Please just edit that one.";
+				"error" => "There already exists a row for that url. Please just edit that one."
 				]);
 		}
 		elseif(true == false)
@@ -83,9 +85,7 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "edit")
 	{
-		echo json_encode([
-			"data" => array_values($_POST["data"])
-			]);		
+			
 	}
 	else
 	{
