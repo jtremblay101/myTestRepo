@@ -131,7 +131,7 @@ if(isset($_POST["action"]))
 						// Error codes and messages are here:
 						// http://msdn.microsoft.com/library/azure/dd179438.aspx
 						$code = $e->getCode();
-						$error_message = $e->getMessage();
+						$error_message = "On delete add: ".$e->getMessage();
 					}
 					
 					$tableRestProxy->deleteEntity($table, "", $previousRowKey);
@@ -149,7 +149,7 @@ if(isset($_POST["action"]))
 					// Error codes and messages are here:
 					// http://msdn.microsoft.com/library/azure/dd179438.aspx
 					$code = $e->getCode();
-					$error_message = $e->getMessage();
+					$error_message = "On edit: ".$e->getMessage();
 				}
 				
 				if(strlen($error_message)>0)
