@@ -121,10 +121,11 @@ if(isset($_POST["action"]))
 			{			
 				if($RowKey != $previousRowKey)
 				{
-				
+					$editEntity->setRowKey("$RowKey");
 					$error_message = "";
 					try{
 						$editEntity = $tableRestProxy->insertEntity($table, $editEntity);
+						$tableRestProxy->deleteEntity($table, "", $previousRowKey);
 					}
 					catch(ServiceException $e){
 						// Handle exception based on error codes and messages.
@@ -134,7 +135,7 @@ if(isset($_POST["action"]))
 						$error_message = "On delete add: ".$e->getMessage();
 					}
 					
-					$tableRestProxy->deleteEntity($table, "", $previousRowKey);
+					
 					
 				}
 				
