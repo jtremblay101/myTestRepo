@@ -86,6 +86,8 @@ if(isset($_POST["action"]))
 		{
 			
 			var_dump($entities);
+			var_dump($filter);
+			
 			exit;
 			
 			$newEntity = new Entity();
