@@ -46,26 +46,31 @@ if(isset($_POST["action"]))
 	}
 	else
 	{
-		$RowKey = base64_encode( $row["RowKey"] );
-		$filter = "";
-		echo json_encode([]);
+		foreach($data as $row)
+		{
+			$RowKey = base64_encode( $row["RowKey"] );
+			$Destination = ( $row["Destination"] );
+			$filter = "";			
+		}
 	}
 	
-	
-	$table = "Vanities";
-	try {
-		$result = $tableRestProxy->queryEntities($table, $filter);
+	if($action == "create" || $action == "edit")
+	{
+		$table = "Vanities";
+		try {
+			$result = $tableRestProxy->queryEntities($table, $filter);
+		}
+			catch(ServiceException $e){
+			// Handle exception based on error codes and messages.
+			// Error codes and messages are here:
+			// http://msdn.microsoft.com/library/azure/dd179438.aspx
+			$code = $e->getCode();
+			$error_message = $e->getMessage();
+			echo $code.": ".$error_message."<br />";
+		}
+		
+		$entities = $result->getEntities();		
 	}
-		catch(ServiceException $e){
-		// Handle exception based on error codes and messages.
-		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/azure/dd179438.aspx
-		$code = $e->getCode();
-		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />";
-	}
-	
-	$entities = $result->getEntities();
 	
 	if($action == "create")
 	{
