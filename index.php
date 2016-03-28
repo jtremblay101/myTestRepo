@@ -1,12 +1,14 @@
 <?php
 if(!isset($_GET["key"]))
 {
+	echo "Creds plz";
 	exit;
 }
 else
 {
 	if($_GET["key"]!="Um9sbHlXb3JsZDE=")
 	{
+		echo "Creds plz";
 		exit;
 	}
 	else
