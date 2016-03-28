@@ -1,4 +1,11 @@
 <?
+session_start();
+		
+if(!isset($_SESSION["logged"]))
+{
+	exit;
+}
+
 require_once 'azure\WindowsAzure\WindowsAzure.php';
 	
 use WindowsAzure\Common\ServicesBuilder;

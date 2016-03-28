@@ -1,3 +1,21 @@
+<?php
+if(!isset($_GET["key"]))
+{
+	exit;
+}
+else
+{
+	if($_GET["key"]!="Um9sbHlXb3JsZDE=")
+	{
+		exit;
+	}
+	else
+	{
+		session_start();
+		$_SESSION["logged"] = $_SERVER['REMOTE_ADDR'];
+	}
+}
+?>
 <head>
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="assets\DataTables/datatables.css"/>
