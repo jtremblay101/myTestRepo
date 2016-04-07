@@ -3,7 +3,9 @@ session_start();
 		
 if(!isset($_SESSION["logged"]))
 {
-	echo "Creds plx";
+	echo json_encode([
+				"error" => "Please Log In. (Refresh with key.)"
+				]);
 	exit;
 }
 
