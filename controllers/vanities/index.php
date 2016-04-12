@@ -83,8 +83,9 @@ if(isset($_POST["action"]))
 		if(strlen($error_message)>0)
 		{
 			echo json_encode([
-				"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+				"error" => "There was a problem retrieving the entity. Please contact the Marketing Technology Team. $error_message"
 			]);
+			exit;
 		}
 		
 		$entities = $result->getEntities();		
@@ -96,7 +97,8 @@ if(isset($_POST["action"]))
 		{
 			echo json_encode([
 				"error" => "There already exists a row for that url. Please just edit that one."
-				]);
+			]);
+			exit;
 		}
 		else
 		{
@@ -138,6 +140,7 @@ if(isset($_POST["action"]))
 			echo json_encode([
 				"error" => "There is no entry to edit. Please refresh your page to get the latest data. If issue persists, please contact the Marketing Technology Team."
 				]);
+			exit;
 		}
 		else
 		{
@@ -157,6 +160,13 @@ if(isset($_POST["action"]))
 						// http://msdn.microsoft.com/library/azure/dd179438.aspx
 						$code = $e->getCode();
 						$error_message = "On delete add: ".$e->getMessage();
+					}
+					if(strlen($error_message)>0)
+					{
+						echo json_encode([
+							"error" => "Your entry was not edited correctly. Please contact the Marketing Technology Team. $error_message"
+						]);
+						exit;
 					}
 					$newResult = $tableRestProxy->getEntity($table, "", $RowKey);
 
@@ -180,8 +190,9 @@ if(isset($_POST["action"]))
 				if(strlen($error_message)>0)
 				{
 					echo json_encode([
-						"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+						"error" => "Your entry was not edited. Please contact the Marketing Technology Team. $error_message"
 					]);
+					exit;
 				}
 				else
 				{
@@ -207,7 +218,7 @@ if(isset($_POST["action"]))
 		if(strlen($error_message)>0)
 		{
 			echo json_encode([
-				"error" => "Your new entry was not made. Please contact the Marketing Technology Team. $error_message"
+				"error" => "Your was not deleted. Please contact the Marketing Technology Team. $error_message"
 			]);
 		}
 		else
